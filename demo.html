@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Annamayya Sankeerthana Academy | Tradition Meets Excellence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. THEME CONFIGURATION (Divinity & Tradition)
+           ========================================= */
+        :root {
+            /* Divine Maroon */
+            --primary-color: #720e1e;
+            /* Deepest Maroon (for contrast) */
+            --primary-dark: #4a0510;
+            /* Temple Gold */
+            --accent-color: #d4af37;
+            /* Sandalwood Cream (Background) */
+            --bg-body: #FFFBF2;
+            /* Pure White (Cards) */
+            --bg-card: #ffffff;
+            /* Text Colors */
+            --text-dark: #2c2420;
+            --text-light: #f0f0f0;
+
+            /* Gradients & Shadows */
+            --gradient-royal: linear-gradient(135deg, #720e1e 0%, #4a0510 100%);
+            --shadow-soft: 0 10px 40px rgba(114, 14, 30, 0.08);
+            --shadow-hover: 0 20px 50px rgba(114, 14, 30, 0.15);
+
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* =========================================
+           2. RESET & BASE STYLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            /* Subtle Texture Pattern */
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            line-height: 1.1;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Ornamental Separator */
+        .section-header h2::after {
+            content: '❖';
+            display: block;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* =========================================
+           3. ANIMATIONS
+           ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           4. NAVBAR (Traditional Elegant)
+           ========================================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            background: rgba(255, 251, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(114, 14, 30, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.6rem 5%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            line-height: 0.9;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            letter-spacing: 3px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .cta-btn {
+            padding: 0.8rem 2rem;
+            background: var(--gradient-royal);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(114, 14, 30, 0.3);
+            border: 1px solid transparent;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(114, 14, 30, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* =========================================
+           5. HERO SECTION (Grand Temple Style)
+           ========================================= */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background-color: #2c0e10;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1623945239920-835694701254?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 14, 16, 0.85) 0%, rgba(114, 14, 30, 0.7) 100%);
+            z-index: 2;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#d4af37 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.15;
+            z-index: 3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 850px;
+            padding: 3.5rem 2rem;
+            background: rgba(44, 10, 10, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+        }
+
+        .hero-content::before,
+        .hero-content::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-color);
+            transition: 0.5s ease;
+        }
+
+        .hero-content::before {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .hero-content::after {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .hero-subtitle {
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: #e0e0e0;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           6. FLOATING STATS
+           ========================================= */
+        .stats-container {
+            width: 85%;
+            max-width: 1200px;
+            margin: -60px auto 0;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+           7. ABOUT SECTION
+           ========================================= */
+        .about-section {
+            padding: 8rem 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            background: var(--bg-body);
+        }
+
+        .about-text h4 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            padding: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: var(--shadow-hover);
+            border: 5px solid white;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent-color);
+            z-index: -1;
+            transform: translate(-15px, -15px);
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* =========================================
+           8. COURSES
+           ========================================= */
+        .courses-section {
+            padding: 6rem 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h4 {
+            color: var(--accent-color);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-top: 10px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid transparent;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-img {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .course-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .ragas {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =========================================
+           9. GALLERY
+           ========================================= */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(114, 14, 30, 0.9), transparent);
+            opacity: 0;
+            transition: 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
+
+        .gallery-overlay::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: 0.4s;
+            transform: scale(0.95);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .overlay-text h5 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .overlay-text p {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           10. VIDEOS
+           ========================================= */
+        .video-section {
+            background-color: #1a0a0a;
+            padding: 8rem 10%;
+            color: white;
+            position: relative;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #1a0a0a, var(--primary-color), #1a0a0a);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .video-info h4 {
+            color: #f0f0f0;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .video-info span {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+   4. HERO SECTION (Redesigned)
+   ========================================= */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            /* Text gets slightly more space */
+            align-items: center;
+            padding: 140px 10% 80px;
+            /* Top padding clears the fixed navbar */
+            overflow: hidden;
+            gap: 4rem;
+        }
+
+        /* Background Texture */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Subtle Mandala/Indian pattern opacity */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        /* --- TEXT SIDE --- */
+        .hero-text-side {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        /* Decorative line before subtitle */
+        .hero-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background: var(--gold-primary);
+        }
+
+        .hero-text-side h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.2rem;
+            line-height: 1.1;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* The 'Divine' Italic Emphasis */
+        .hero-text-side h1 span {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--maroon-primary);
+            background: -webkit-linear-gradient(45deg, var(--maroon-primary), #a3162e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text-side p {
+            font-size: 1.15rem;
+            color: var(--text-grey);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Secondary Outline Button */
+        .btn-outline {
+            padding: 10px 28px;
+            background: transparent;
+            color: var(--maroon-primary);
+            border: 1px solid var(--maroon-primary);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--maroon-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- IMAGE SIDE (Framed Portrait) --- */
+        .hero-image-side {
+            position: relative;
+            height: 600px;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 8px 100px 8px;
+            /* Unique corner shape */
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 10s ease;
+        }
+
+        .hero-image-side:hover .image-frame img {
+            transform: scale(1.1);
+        }
+
+        /* The "Offset Gold Border" */
+        .hero-image-side::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: -30px;
+            bottom: -30px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 8px 8px 100px 8px;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .hero-image-side:hover::after {
+            transform: translate(-10px, -10px);
+        }
+
+        /* =========================================
+   5. FLOATING STATS (Redesigned)
+   ========================================= */
+        .stats-container {
+            width: 85%;
+            max-width: 1100px;
+            margin: -80px auto 0;
+            /* Pulls it up over the hero */
+            background: var(--white-pure);
+            padding: 3rem 4rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            position: relative;
+            z-index: 10;
+            border-bottom: 5px solid var(--maroon-primary);
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Separator Lines */
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: #e0e0e0;
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-deep);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+   RESPONSIVE
+   ========================================= */
+        @media (max-width: 968px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-subtitle {
+                padding-left: 0;
+            }
+
+            .hero-subtitle::before {
+                display: none;
+            }
+
+            .hero-text-side p {
+                margin: 0 auto 2.5rem;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-image-side {
+                height: 400px;
+                margin: 0 20px;
+                /* Space for the offset border */
+            }
+
+            .hero-image-side::after {
+                right: -15px;
+                bottom: -15px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                width: 90%;
+                margin-top: -40px;
+                padding: 2rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+                /* Remove separators on mobile */
+            }
+
+            .stat-item {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 2rem;
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+
+        /* =========================================
+           11. CONTACT
+           ========================================= */
+        .contact-section {
+            padding: 8rem 10%;
+            background: var(--bg-body);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: white;
+            font-family: 'Lato', sans-serif;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(114, 14, 30, 0.1);
+        }
+
+        /* =========================================
+           12. FOOTER
+           ========================================= */
+        footer {
+            background-color: #2b0e12;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 5rem 10% 2rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col .logo {
+            text-align: left;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+        }
+
+        /* =========================================
+           13. RESPONSIVE
+           ========================================= */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 140px;
+                padding-bottom: 60px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-content::before,
+            .hero-content::after {
+                display: none;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                width: 90%;
+                gap: 2rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .stat-item {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 1.5rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                padding: 4rem 5%;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--primary-color);
+                flex-direction: column;
+                justify-content: center;
+                padding: 2rem;
+                transition: 0.4s;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                Sri Annamayya
+                <span>Sankeerthana</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Legacy</a></li>
+                <li><a href="#courses">Classes</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact" class="cta-btn">Book Trial</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-text-side reveal">
+            <span class="hero-subtitle">Est. 1985 &bull; Tirupati</span>
+            <h1>
+                Discover the Path of<br>
+                <span>Divine Sankeerthana</span>
+            </h1>
+            <p>
+                Where music becomes devotion. Bridge the ancient heritage of Annamacharya with rigorous classical
+                training. Join us to nurture the artist and the soul within.
+            </p>
+            <div class="hero-btns">
+                <a href="#courses" class="cta-btn">Start Learning</a>
+                <a href="about.html" class="btn-outline">Our Legacy</a>
+            </div>
+        </div>
+
+        <div class="hero-image-side reveal" style="animation-delay: 0.2s;">
+            <div class="image-frame">
+                <img src="https://images.unsplash.com/photo-1550608682-1c6f9e31d279?q=80&w=2070&auto=format&fit=crop"
+                    alt="Sri Annamayya Sankeerthana Academy Student">
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-container reveal" style="animation-delay: 0.4s;">
+        <div class="stat-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h3 data-target="1500">1500+</h3>
+            <p>Alumni</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-music"></i>
+            <h3 data-target="35">35+</h3>
+            <p>Years of Legacy</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3 data-target="12">12+</h3>
+            <p>Master Gurus</p>
+        </div>
+    </div>
+
+    <section id="about" class="about-section">
+        <div class="about-image reveal">
+            <img src="https://images.unsplash.com/photo-1596305589440-2e119ce9961c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                alt="Veena Player">
+        </div>
+        <div class="about-text reveal">
+            <h4>Our Heritage</h4>
+            <h2>Where Tradition Meets Perfection</h2>
+            <p>Sri Annamayya Sankeerthana Academy was founded with a singular vision: to impart the purest form of
+                Carnatic music to the next generation. Rooted in the <strong>Sampradaya</strong> method, our curriculum
+                balances rigorous
+                technical training with deep spiritual understanding.</p>
+            <p>Whether you are a beginner taking your first steps in <em>Swara Gnana</em> or an advanced student
+                mastering
+                complex <em>Gamakas</em>, our gurus provide personalized mentorship.</p>
+            <a href="#" class="learn-more">Read Our Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <div class="section-header reveal">
+            <h4>Curriculum</h4>
+            <h2>Academic Programs</h2>
+        </div>
+
+        <div class="course-grid">
+            <div class="course-card reveal">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1614959542031-6453fbdf8b87?q=80&w=2070&auto=format&fit=crop"
+                        alt="Vocal">
+                </div>
+                <div class="card-content">
+                    <span class="ragas">Carnatic Vocal</span>
+                    <h3>Certificate in Vocal</h3>
+                    <p>From Sarali Varisais to Manodharma, a structured course designed for divine expression.</p>
+                    <a href="#" class="learn-more">View Syllabus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="course-card reveal">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80"
+                        alt="Veena">
+                </div>
+                <div class="card-content">
+                    <span class="ragas">Instrumental</span>
+                    <h3>The Veena School</h3>
+                    <p>Master the Saraswati Veena with a focus on Thanam and intricate gamakas.</p>
+                    <a href="#" class="learn-more">View Syllabus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="course-card reveal">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1629801825126-78f9c5957d54?q=80&w=1965&auto=format&fit=crop"
+                        alt="Violin">
+                </div>
+                <div class="card-content">
+                    <span class="ragas">Strings</span>
+                    <h3>Violin Training</h3>
+                    <p>Specialized bowing techniques for accompaniment and solo performances.</p>
+                    <a href="#" class="learn-more">View Syllabus <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="padding: 6rem 0;">
+        <div class="section-header reveal">
+            <h4>Life at Annamayya Sankeerthana</h4>
+            <h2>Moments of Melody</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1514119688877-10a577a9c967?auto=format&fit=crop&w=800&q=80"
+                    alt="Concert">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <p>Annual Day</p>
+                        <h5>Tyagaraja Aradhana</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1525926477800-7a3be5800fcb?auto=format&fit=crop&w=800&q=80"
+                    alt="Classroom">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <p>Daily Practice</p>
+                        <h5>Morning Sadhana</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80"
+                    alt="Awards">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <p>Convocation</p>
+                        <h5>Graduation Ceremony</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1567888989743-5b10339b722d?auto=format&fit=crop&w=800&q=80"
+                    alt="Veena">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <p>Workshops</p>
+                        <h5>Masterclass Series</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="section-header reveal">
+            <h4 style="color: var(--accent-color);">Watch Us Live</h4>
+            <h2 style="color: white;">Featured Performances</h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/S_8zWIBowqk" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Vatapi Ganapathim</h4>
+                    <span>Annual Concert 2023</span>
+                </div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/5D3s8C_tW-U" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Veena Solo Performance</h4>
+                    <span>Navaratri Special</span>
+                </div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/L4M6qLg9k_0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h4>Raga Hamsadhwani</h4>
+                    <span>Junior Level Exam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="section-header reveal">
+            <h4>Join the Academy</h4>
+            <h2>Start Your Musical Journey</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
+            <div class="reveal">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color);">Visit Our Campus</h3>
+                <p style="color: #666; margin-bottom: 2rem;">Walk into our academy to experience the divine atmosphere.
+                    Counseling is available Monday through Saturday.</p>
+                <div style="margin-bottom: 1.5rem; display: flex; align-items: start; gap: 20px;">
+                    <div
+                        style="width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 5px 15px rgba(114, 14, 30, 0.2);">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h5 style="font-weight: 700; margin-bottom: 5px;">Address</h5>
+                        <p style="font-size: 0.95rem; color: #555;">No. 45, Temple Street, Tirupati</p>
+                    </div>
+                </div>
+                <div style="margin-bottom: 1.5rem; display: flex; align-items: start; gap: 20px;">
+                    <div
+                        style="width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 5px 15px rgba(114, 14, 30, 0.2);">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h5 style="font-weight: 700; margin-bottom: 5px;">Call Us</h5>
+                        <p style="font-size: 0.95rem; color: #555;">+91 98765 43210</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal"
+                style="background: white; padding: 3rem; border-radius: 8px; border-top: 4px solid var(--accent-color); box-shadow: var(--shadow-soft);">
+                <form>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 8px; color: #444; text-transform: uppercase;">Student
+                            Name</label>
+                        <input type="text" placeholder="Enter full name">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 1.5rem;">
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 8px; color: #444; text-transform: uppercase;">Phone</label>
+                            <input type="tel" placeholder="+91...">
+                        </div>
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 8px; color: #444; text-transform: uppercase;">Interest</label>
+                            <select>
+                                <option>Vocal</option>
+                                <option>Veena</option>
+                                <option>Violin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="cta-btn"
+                        style="width: 100%; cursor: pointer; border-radius: 4px;">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px; text-align: left;">
+                    SRI ANNAMAYYA <br><span>SANKEERTHANA</span>
+                </div>
+                <p style="font-size: 0.9rem; line-height: 1.6;">An ISO 9001:2015 certified institution dedicated to the
+                    propagation of Indian Classical Music and
+                    Culture globally.</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Syllabus</a></li>
+                    <li><a href="#">Events Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Vocal Music</a></li>
+                    <li><a href="#">Veena</a></li>
+                    <li><a href="#">Violin</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent-color);"></i>
+                        No. 45, Temple Street, Tirupati</li>
+                    <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent-color);"></i> +91 98765
+                        43210</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-color);"></i>
+                        info@annamaya.com</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.6;">
+            <p>&copy; 2024 Sri Annamayya Sankeerthana Academy. Designed with devotion.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach((el) => revealOnScroll.observe(el));
+
+        // 3. Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Number Counter Animation
+        const stats = document.querySelectorAll('.stat-item h3');
+        let hasCounted = false;
+        const startCounting = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !hasCounted) {
+                stats.forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    const increment = target / 50;
+                    const updateCount = () => {
+                        const count = +stat.innerText.replace('+', '');
+                        if (count < target) {
+                            stat.innerText = Math.ceil(count + increment) + "+";
+                            setTimeout(updateCount, 40);
+                        } else {
+                            stat.innerText = target + "+";
+                        }
+                    };
+                    updateCount();
+                });
+                hasCounted = true;
+            }
+        }, { threshold: 0.5 });
+        startCounting.observe(document.querySelector('.stats-container'));
+    </script>
+</body>
+
+</html>

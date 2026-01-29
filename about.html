@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Sri Annamayya Sankeerthana Academy</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. THEME CONFIGURATION
+           ========================================= */
+        :root {
+            /* Palette */
+            --maroon-deep: #4a040e;
+            --maroon-primary: #720e1e;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --cream-bg: #fffbf2;
+            --white-pure: #ffffff;
+            --text-dark: #2c1a1d;
+            --text-grey: #5a5a5a;
+
+            /* Gradients */
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --royal-gradient: linear-gradient(135deg, #720e1e 0%, #2b0509 100%);
+
+            /* Shadows & Effects */
+            --shadow-card: 0 10px 30px -5px rgba(114, 14, 30, 0.1);
+            --shadow-hover: 0 20px 40px -5px rgba(114, 14, 30, 0.2);
+            --border-radius: 8px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* =========================================
+           2. RESET & BASE STYLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            /* Subtle Pattern */
+            background-image: radial-gradient(var(--gold-primary) 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--maroon-primary);
+        }
+
+        /* Elegant Separator */
+        .separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: "";
+            height: 1px;
+            width: 50px;
+            background: var(--gold-primary);
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* =========================================
+           3. NAVBAR (Glassmorphism)
+           ========================================= */
+        header#header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            background: rgba(255, 251, 242, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        header#header.scrolled {
+            padding: 0.6rem 5%;
+            background: rgba(255, 251, 242, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon-primary);
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.65em;
+            color: #b38728;
+            /* Gold text */
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 10px 25px !important;
+            background: var(--royal-gradient);
+            color: white !important;
+            border-radius: 50px;
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 5px 15px rgba(114, 14, 30, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(114, 14, 30, 0.5);
+        }
+
+        .cta-btn::after {
+            display: none !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--maroon-primary);
+            cursor: pointer;
+        }
+
+        /* =========================================
+           4. HERO SECTION (Parallax)
+           ========================================= */
+        .page-hero {
+            height: 60vh;
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+            /* Offset for fixed header */
+            overflow: hidden;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Parallax Effect */
+            background: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(44, 4, 10, 0.8), rgba(114, 14, 30, 0.7));
+            z-index: 2;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 5;
+            color: white;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+        }
+
+        /* Decorative Corners */
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-primary);
+            transition: 0.5s;
+        }
+
+        .tl {
+            top: -2px;
+            left: -2px;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+        .br {
+            bottom: -2px;
+            right: -2px;
+            border-left: 0;
+            border-top: 0;
+        }
+
+        .page-hero-content:hover .tl {
+            top: -10px;
+            left: -10px;
+        }
+
+        .page-hero-content:hover .br {
+            bottom: -10px;
+            right: -10px;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: var(--gold-light);
+        }
+
+        /* =========================================
+           5. PROFILE SECTION
+           ========================================= */
+        .profile-section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Photo Frame Effect */
+        .profile-image-card {
+            position: sticky;
+            top: 100px;
+            background: var(--white-pure);
+            padding: 15px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .profile-image-card img {
+            width: 100%;
+            /* Double Border Frame */
+            border: 3px solid var(--white-pure);
+            outline: 2px solid var(--gold-primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-image-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-image-card p.designation {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .titles-list {
+            text-align: left;
+            border-top: 1px solid #eee;
+            padding-top: 1.5rem;
+        }
+
+        .titles-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #444;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .titles-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        /* Content Typography */
+        .profile-content h4 {
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+        }
+
+        .profile-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: -webkit-linear-gradient(#720e1e, #4a040e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            text-align: justify;
+        }
+
+        .profile-content strong {
+            color: var(--maroon-primary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.1), transparent);
+            border-left: 4px solid var(--gold-primary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Grid Cards */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .credential-card {
+            background: white;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            border-radius: var(--border-radius);
+            border-top: 4px solid var(--maroon-primary);
+            transition: var(--transition);
+        }
+
+        .credential-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--gold-primary);
+        }
+
+        .credential-card h5 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .credential-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           6. FOOTER
+           ========================================= */
+        footer {
+            background-color: #1a0507;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 5rem 5% 2rem;
+            border-top: 4px solid var(--gold-primary);
+            position: relative;
+        }
+
+        /* Footer Texture */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-col h4 {
+            color: var(--gold-primary);
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--maroon-primary);
+            transform: rotate(360deg);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .copyright p {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .copyright p {
+                justify-content: space-between;
+            }
+
+            .mobile-break {
+                display: none;
+            }
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* =========================================
+           7. RESPONSIVE
+           ========================================= */
+        @media (max-width: 968px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image-card {
+                position: static;
+                max-width: 400px;
+                margin: 0 auto 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream-bg);
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: 3px solid var(--gold-primary);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: 0.4s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                SRI ANNAMAYYA <br><span>SANKEERTHANA ACADEMY</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active" style="color: var(--maroon-primary);">About</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#courses">Classes</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact" class="cta-btn">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <header class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+
+        <div class="page-hero-content reveal">
+            <div class="corner tl"></div>
+            <div class="corner br"></div>
+
+            <h1>Our Legacy</h1>
+            <p>From Generation to Generation, The Classical Tradition Lives On</p>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="profile-container">
+
+            <div class="profile-image-card reveal">
+                <img src="images/founder.jpg" alt="Vidwan B. Raghunath">
+                <h3>Vidwan B. Raghunath</h3>
+                <p class="designation">Founder </p>
+
+                <ul class="titles-list">
+                    <li>Grade I Vocal Artist, T.T.D.</li>
+                    <li>Nadachintamani</li>
+                    <li>Sri Annamaiah Gana Visarada</li>
+                    <li>Vagdevi Sangeeta Kala Praveena</li>
+                </ul>
+            </div>
+
+            <div class="profile-content reveal">
+                <h4>A Lifetime of Devotion</h4>
+                <h2>A Life Dedicated to Divine Music</h2>
+
+                <p>Vidwan B. Raghunath's journey in music is not merely a career but a lifelong penance (Sadhana). Born
+                    in 1962, he dedicated his life to Carnatic Music under the tutelage of his father, <strong>Vidwan
+                        Sri B. Venkateswarlu</strong>.</p>
+
+
+
+                <div class="highlight-box">
+                    <h3
+                        style="font-size: 1.4rem; margin-bottom: 1.2rem; color: var(--maroon-primary); border-bottom: 1px solid var(--gold-primary); padding-bottom: 10px; display: inline-block;">
+                        International Wide</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-plane-departure"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;"><strong>600th Annamaiah Birthday Celebrations:</strong>
+                                <br>Telugu Kala Samithi at KUWAIT (25-10-2007).</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-om"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;"><strong>Sri Mahavallabha Ganapati Devasthanam:</strong> <br>The
+                                Hindu Temple Society of North America (NY) (12-4-2008 & 13-4-2008).</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-music"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;"><strong>Indian Association Hall:</strong> <br>SHARJAH - UAE AT
+                                DUBAI (20-6-2008).</span>
+                        </li>
+                        <li style="margin-bottom: 0; display: flex; align-items: flex-start;">
+                            <i class="fas fa-gopuram"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;"><strong>Sri Venkateswara Temple:</strong> <br>PITTSBURGH, U.S.A.
+                                (30-8-2008 to 1-9-2008).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3
+                        style="color: var(--maroon-primary); font-size: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid var(--gold-primary); padding-left: 15px;">
+                        Other Distinguished Credentials
+                    </h3>
+                    <ul class="achievement-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-award"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;">Participated in <strong>Srivari Brahmotsavams</strong> at
+                                Tirumala, Sri Thyagaraja Festivals & Annamacharya Festivals & Recordings of
+                                T.T.D.</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                            <i class="fas fa-map-marked-alt"
+                                style="color: var(--gold-primary); margin-top: 5px; margin-right: 12px; flex-shrink: 0;"></i>
+                            <span style="color: #444;">Performed in major music concerts across India including
+                                <strong>Madras, Delhi, Kolkata, Bombay, Bangalore</strong>, and Kavaratti
+                                (Lakshadweep).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p>Today, as a Grade I Artist at the Annamacharya Project (T.T.D.), he continues to serve the Lord
+                    through his music while nurturing the next generation of artists at Sri Annamayya Sankeerthana
+                    Academy.</p>
+
+                <div class="separator"><i class="fas fa-om"></i></div>
+
+                <div class="credentials-grid">
+                    <div class="credential-card">
+                        <i class="fas fa-chalkboard-teacher"
+                            style="font-size: 2rem; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                        <h5>35+ Years</h5>
+                        <p>Of Dedicated Teaching & Performance Experience.</p>
+                    </div>
+                    <div class="credential-card">
+                        <i class="fas fa-microphone-alt"
+                            style="font-size: 2rem; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                        <h5>T.T.D. Artist</h5>
+                        <p>Grade I Vocal Artist, Annamacharya Project.</p>
+                    </div>
+                    <div class="credential-card">
+                        <i class="fas fa-globe-asia"
+                            style="font-size: 2rem; color: var(--gold-primary); margin-bottom: 15px;"></i>
+                        <h5>Global Tour</h5>
+                        <p>Prestigious performances in USA, UAE & Kuwait.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="text-align: left; color: white;">
+                    SRI ANNAMAYYA <br><span style="color: var(--gold-primary);">SANKEERTHANA</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@raghunathbommisetty6687" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="index.html#courses">Classes</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Annamayya Sankeerthana</a></li>
+                    <li><a href="#">Vocal Music</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--gold-primary);"></i>
+                        18-8-35/B, Madura Nagar, Tirupati</li>
+                    <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--gold-primary);"></i> +91 78424
+                        34577</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--gold-primary);"></i>
+                        info@annamaya.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>
+                <span>&copy; 2026 Sri Annamayya Sankeerthana Academy. Designed with Devotion.</span>
+                <span>Developed by <a href="https://sswebtech.xyz" target="_blank"
+                        style="color: var(--gold-primary); text-decoration: none; font-weight: bold;">sswebtech.xyz</a></span>
+            </p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917842434577" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const icon = mobileMenu.querySelector('i');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+</body>
+
+</html>

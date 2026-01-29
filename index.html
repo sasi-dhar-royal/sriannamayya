@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Annamayya Sankeerthana Academy | Tradition Meets Excellence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. THEME CONFIGURATION (Divinity & Tradition)
+           ========================================= */
+        :root {
+            /* Divine Maroon */
+            --primary-color: #720e1e;
+            /* Deepest Maroon (for contrast) */
+            --primary-dark: #4a0510;
+            /* Temple Gold */
+            --accent-color: #d4af37;
+            /* Sandalwood Cream (Background) */
+            --bg-body: #FFFBF2;
+            /* Pure White (Cards) */
+            --bg-card: #ffffff;
+            /* Text Colors */
+            --text-dark: #2c2420;
+            --text-light: #f0f0f0;
+
+            /* Gradients & Shadows */
+            --gradient-royal: linear-gradient(135deg, #720e1e 0%, #4a0510 100%);
+            --shadow-soft: 0 10px 40px rgba(114, 14, 30, 0.08);
+            --shadow-hover: 0 20px 50px rgba(114, 14, 30, 0.15);
+
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+            /* New Hero Variables */
+            --accent-glow: rgba(212, 175, 55, 0.5);
+            --glass-bg: rgba(44, 14, 16, 0.65);
+            --glass-border: rgba(212, 175, 55, 0.3);
+        }
+
+        /* =========================================
+           2. RESET & BASE STYLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            /* Subtle Texture Pattern */
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            line-height: 1.1;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Ornamental Separator */
+        .section-header h2::after {
+            content: '❖';
+            display: block;
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* =========================================
+           3. ANIMATIONS
+           ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: translateY(0);
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-20px);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* =========================================
+           4. NAVBAR (Glassmorphism - Like About Page)
+           ========================================= */
+        header#header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            background: rgba(255, 251, 242, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        header#header.scrolled {
+            padding: 0.6rem 5%;
+            background: rgba(255, 251, 242, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.65em;
+            color: var(--accent-color);
+            letter-spacing: 4px;
+            font-family: 'Cinzel', serif;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 5px 0;
+            color: var(--text-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            padding: 10px 25px !important;
+            background: var(--gradient-royal);
+            color: white !important;
+            border-radius: 50px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(114, 14, 30, 0.3);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(114, 14, 30, 0.5);
+            background: var(--primary-color);
+        }
+
+        .cta-btn::after {
+            display: none !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* =========================================
+           5. HERO SECTION (Refined Split Layout)
+           ========================================= */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            align-items: center;
+            padding: 100px 8% 60px;
+            /* Balanced padding */
+            gap: 4rem;
+            /* Reduced gap */
+            background-color: #2c0e10;
+            overflow: hidden;
+        }
+
+        /* Background Layers */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1623945239920-835694701254?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            opacity: 0.4;
+            z-index: 1;
+            transform: scale(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #1a0505 0%, rgba(44, 14, 16, 0.85) 50%, rgba(44, 14, 16, 0.7) 100%);
+            z-index: 2;
+        }
+
+        /* Animated Particles/Pattern */
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--accent-glow) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.2;
+            z-index: 3;
+            animation: twinkle 10s infinite linear;
+        }
+
+        /* --- LEFT SIDE: IMAGE (Advanced) --- */
+        .hero-image-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* The Frame Container */
+        .image-frame {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            /* Slightly reduced */
+            border-radius: 200px 200px 20px 20px;
+            padding: 12px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, transparent 100%);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            border-radius: 190px 190px 10px 10px;
+            display: block;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            filter: sepia(10%);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.02);
+            filter: sepia(0%);
+        }
+
+        /* Decorative Spinning Chakra/Circle behind image */
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50 L50 0 A50 50 0 0 1 100 50 Z' fill='none' stroke='%23d4af37' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+            animation: rotate 60s linear infinite;
+        }
+
+        /* --- RIGHT SIDE: CONTENT --- */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: left;
+            color: white;
+            padding-left: 2rem;
+            max-width: none;
+            background: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .hero-content::before,
+        .hero-content::after {
+            display: none;
+        }
+
+        /* Subtitle with line */
+        .hero-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards 0.2s;
+            background: none;
+            padding: 0;
+            border: none;
+        }
+
+        .hero-subtitle::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        /* Main Heading */
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            /* Responsive font size */
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards 0.4s;
+            text-shadow: none;
+        }
+
+        .hero h1 span.small-text {
+            display: block;
+            font-size: 0.45em;
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            color: #dcbf66;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-style: normal;
+        }
+
+        /* Gradient Text Effect for Main Title */
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff 20%, #d4af37 50%, #ffffff 80%);
+            background-size: 200% auto;
+            color: #fff;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #e0e0e0;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 90%;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards 0.6s;
+            border-left: 3px solid rgba(212, 175, 55, 0.3);
+            padding-left: 20px;
+            margin-left: 0;
+        }
+
+        /* Buttons */
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards 0.8s;
+        }
+
+        .hero .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem !important;
+            background: var(--gradient-royal);
+            color: white !important;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--accent-glow);
+            border-color: var(--accent-color);
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-btn:hover::after {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color) !important;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: var(--primary-color) !important;
+        }
+
+        /* New Hero Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 100px 5% 60px;
+                text-align: center;
+                gap: 2rem;
+                height: auto;
+                /* Allow growth on mobile */
+                min-height: 100vh;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(180deg, rgba(26, 5, 5, 0.4) 0%, rgba(44, 14, 16, 0.95) 40%, #2c0e10 100%);
+            }
+
+            .hero-image-wrapper {
+                order: -1;
+                max-width: 280px;
+                margin: 0 auto;
+                animation: none;
+            }
+
+            .image-frame {
+                padding: 10px;
+                border-radius: 150px 150px 15px 15px;
+            }
+
+            .image-frame img {
+                border-radius: 140px 140px 10px 10px;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                padding: 2rem 1.5rem;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .hero-subtitle {
+                justify-content: center;
+                margin-bottom: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-subtitle::before {
+                display: block;
+            }
+
+            .hero-subtitle::after {
+                content: '';
+                width: 40px;
+                height: 2px;
+                background: var(--accent-color);
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                border-left: none;
+                padding-left: 0;
+                margin-bottom: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+            }
+        }
+
+        /* =========================================
+           6. FLOATING STATS
+           ========================================= */
+        .stats-container {
+            width: 85%;
+            max-width: 1200px;
+            margin: -60px auto 0;
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 4px;
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+           7. ABOUT SECTION
+           ========================================= */
+        .about-section {
+            padding: 8rem 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            background: var(--bg-body);
+        }
+
+        .about-text h4 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            padding: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: var(--shadow-hover);
+            border: 5px solid white;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent-color);
+            z-index: -1;
+            transform: translate(-15px, -15px);
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* =========================================
+           8. COURSES
+           ========================================= */
+        .courses-section {
+            padding: 6rem 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h4 {
+            color: var(--accent-color);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-top: 10px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid transparent;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-img {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .course-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .ragas {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =========================================
+           9. GALLERY
+           ========================================= */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(114, 14, 30, 0.9), transparent);
+            opacity: 0;
+            transition: 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
+
+        .gallery-overlay::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: 0.4s;
+            transform: scale(0.95);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .overlay-text h5 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .overlay-text p {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           10. VIDEOS
+           ========================================= */
+        .video-section {
+            background-color: #1a0a0a;
+            padding: 8rem 10%;
+            color: white;
+            position: relative;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #1a0a0a, var(--primary-color), #1a0a0a);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .video-info h4 {
+            color: #f0f0f0;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .video-info span {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
+           11. CONTACT
+           ========================================= */
+        .contact-section {
+            padding: 8rem 10%;
+            background: var(--bg-body);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: white;
+            font-family: 'Lato', sans-serif;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(114, 14, 30, 0.1);
+        }
+
+        /* =========================================
+           12. FOOTER
+           ========================================= */
+        footer {
+            background-color: #2b0e12;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 5rem 10% 2rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col .logo {
+            text-align: left;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+
+            border-color: var(--accent-color);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            transition: 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* =========================================
+           13. RESPONSIVE
+           ========================================= */
+        @media (max-width: 768px) {
+
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                width: 90%;
+                gap: 2rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .stat-item {
+                border-bottom: 1px solid #eee;
+                padding-bottom: 1.5rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                padding: 4rem 5%;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--primary-color);
+                flex-direction: column;
+                justify-content: center;
+                padding: 2rem;
+                transition: 0.4s;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            .menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                padding: 10px 20px 30px 20px;
+                /* Bottom padding for shadow */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .gallery-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .gallery-item {
+                min-width: 85%;
+                scroll-snap-align: center;
+                height: 400px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                margin-bottom: 0;
+            }
+
+            /* Make the overlay always visible on mobile or slightly visible */
+            .gallery-overlay {
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+                opacity: 1;
+            }
+
+            .gallery-overlay h5 {
+                transform: translateY(0);
+            }
+        }
+
+        /* Events Section - Attractive Featured Style */
+        .events-section {
+            padding: 6rem 8%;
+            background-color: var(--bg-body);
+            display: flex;
+            justify-content: center;
+        }
+
+        .events-feature-container {
+            position: relative;
+            background: linear-gradient(135deg, #4a040e 0%, #2b0509 100%);
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 20px;
+            padding: 4rem;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .events-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.2) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .event-feature-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .event-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--accent-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .events-feature-container h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 1rem 0 2rem;
+            width: 100%;
+        }
+
+        .event-separator .line {
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        }
+
+        .event-separator .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .events-feature-container p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .event-details-grid {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .event-detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event-detail-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .event-detail-item span {
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .events-feature-container {
+                padding: 2rem;
+            }
+
+            .events-feature-container h2 {
+                font-size: 2.5rem;
+            }
+
+            .event-details-grid {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                SRI ANNAMAYYA <br><span>SANKEERTHANA ACADEMY</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#courses">Classes</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact" class="cta-btn">Join Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <!-- Background Elements -->
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+
+        <!-- Left Side: Image (Advanced Frame) -->
+        <div class="hero-image-wrapper">
+            <div class="image-frame">
+                <img src="images/image.png" alt="Sri Annamayya Sankeerthana Academy">
+            </div>
+        </div>
+
+        <!-- Right Side: Content -->
+        <div class="hero-content">
+            <span class="hero-subtitle">Est. 1985 &bull; Tirupati</span>
+
+            <h1>
+                <span class="small-text">Welcome to the Abode of</span>
+                <span class="gradient-text">Divine Sankeerthana</span>
+            </h1>
+
+            <p>
+                Where music becomes a path to devotion and inner harmony. We bridge the ancient heritage of Annamacharya
+                with rigorous classical training, nurturing the artist within you.
+            </p>
+
+            <div class="hero-btns">
+                <a href="#courses" class="cta-btn">
+                    Start Learning <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#about" class="cta-btn btn-outline">
+                    Our Legacy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-container reveal">
+        <div class="stat-item">
+            <h3 data-target="1500">0+</h3>
+            <p>Alumni</p>
+        </div>
+        <div class="stat-item">
+            <h3 data-target="35">0+</h3>
+            <p>Years of Legacy</p>
+        </div>
+        <div class="stat-item">
+            <h3 data-target="12">0+</h3>
+            <p>Master Gurus</p>
+        </div>
+    </div>
+
+    <section id="about" class="about-section">
+        <div class="about-image reveal">
+            <img src="images/founder.jpg" alt="founder">
+        </div>
+        <div class="about-text reveal">
+            <h4>Our Heritage</h4>
+            <h2>Where Tradition Meets Perfection</h2>
+            <p>Sri Annamayya Sankeerthana Academy was founded with a singular vision: to impart the purest form of
+                Carnatic music to the next generation. Rooted in the <strong>Sampradaya</strong> method, our curriculum
+                balances rigorous
+                technical training with deep spiritual understanding.</p>
+            <p>We welcome students of all levels, from beginners taking their first steps in <em>Swara Gnana</em> to
+                advanced students mastering complex <em>Gamakas</em>.</p>
+            <a href="#" class="learn-more">Read Our Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <div class="section-header reveal">
+            <h4>Our Offerings</h4>
+            <h2>Music Classes</h2>
+        </div>
+
+        <div class="course-grid">
+            <!-- Card 1: Annamayya Keerthanalu -->
+            <div class="course-card reveal">
+                <div class="card-img">
+                    <img src="images/annamachaya.png" alt="Annamacharya" style="object-fit: contain;">
+                    <!-- Using local image relevant to the topic -->
+                </div>
+                <div class="card-content">
+                    <span class="ragas">Divine Sankeerthana</span>
+                    <h3>Annamayya Keerthanalu</h3>
+                    <p>Learn the keerthanas of the Tallapaka poet.</p>
+                    <div style="margin-top: 15px;">
+                        <span
+                            style="background: var(--accent-color); color: var(--primary-color); padding: 8px 20px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);">
+                            <i class="fas fa-laptop-house" style="margin-right: 8px;"></i>Online & Offline Classes
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Card 2: Vocal -->
+            <div class="course-card reveal">
+                <div class="card-img">
+                    <img src="images/vocal.png" alt="Vocal Mic">
+                </div>
+                <div class="card-content">
+                    <span class="ragas">Carnatic Classical</span>
+                    <h3>Vocal</h3>
+                    <p>Comprehensive training in Carnatic vocal music.</p>
+                    <div style="margin-top: 15px;">
+                        <span
+                            style="background: var(--accent-color); color: var(--primary-color); padding: 8px 20px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);">
+                            <i class="fas fa-laptop-house" style="margin-right: 8px;"></i>Online & Offline Classes
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="events" class="events-section">
+        <div class="events-feature-container reveal">
+            <div class="events-bg-overlay"></div>
+            <div class="event-feature-content">
+                <div class="event-badge"> <i class="fas fa-hand-holding-heart" style="margin-right: 8px;"></i> Divine
+                    Service</div>
+                <h2>Invite for Sankeerthana Seva</h2>
+                <div class="event-separator">
+                    <span class="dot"></span>
+                    <span class="line"></span>
+                    <span class="dot"></span>
+                </div>
+                <p>Make your special occasions truly divine. We are available to conduct <strong>Annamayya Sankeerthana
+                        Seva</strong> at temples, weddings, housewarming ceremonies, and community gatherings.
+                    Experience the spiritual vibration of the Sankeerthanas performed by our dedicated team.</p>
+
+                <div class="event-details-grid">
+                    <div class="event-detail-item">
+                        <i class="fas fa-gopuram"></i>
+                        <span>Temples & Utsavams</span>
+                    </div>
+                    <div class="event-detail-item">
+                        <i class="fas fa-home"></i>
+                        <span>House Ceremonies</span>
+                    </div>
+                    <div class="event-detail-item">
+                        <i class="fas fa-users"></i>
+                        <span>Cultural Events</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="cta-btn" style="margin-top: 2rem;">Book a Sankeerthana</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" style="padding: 6rem 0;">
+        <div class="section-header reveal">
+            <h4>Life at Annamayya Sankeerthana</h4>
+            <h2>Moments of Melody</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="images/1.jpeg" alt="Gallery Image 1">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/2.jpeg" alt="Gallery Image 2">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/3.jpeg" alt="Gallery Image 3">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/4.jpeg" alt="Gallery Image 4">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/5.jpeg" alt="Gallery Image 5">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="section-header reveal">
+            <h4 style="color: var(--accent-color);">Watch Us Live</h4>
+            <h2 style="color: white;">Featured Performances</h2>
+        </div>
+        <div class="video-grid">
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/oTU94PPwLzk" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/C2FkgoQPMw8" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="video-card reveal">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/gyOCjU_szEY" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="section-header reveal">
+            <h4>Get in Touch</h4>
+            <h2>Reach Out to Us</h2>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="reveal"
+            style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; text-align: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <div
+                    style="width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(114, 14, 30, 0.2);">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                    <h5 style="font-weight: 700;">Visit Us</h5>
+                    <p style="font-size: 0.9rem; color: #555;">18-8-35/B, Madura Nagar, Tirupati - 517 501</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <div
+                    style="width: 50px; height: 50px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(114, 14, 30, 0.2);">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                    <h5 style="font-weight: 700;">Call Us</h5>
+                    <p style="font-size: 0.9rem; color: #555;">+91 78424 34577</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+
+            <!-- Form 1: Event Booking -->
+            <div class="reveal"
+                style="background: white; padding: 2.5rem; border-radius: 12px; border-top: 4px solid var(--accent-color); box-shadow: var(--shadow-soft);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem;">
+                    <i class="fas fa-calendar-check" style="margin-right: 10px;"></i> Book Sankeerthana Event
+                </h3>
+                <form>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Organizer
+                            Name</label>
+                        <input type="text" id="bookingName" placeholder="Your Name / Organization">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 1.2rem;">
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Phone</label>
+                            <input type="tel" id="bookingPhone" placeholder="+91...">
+                        </div>
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Date</label>
+                            <input type="date" id="bookingDate">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Location</label>
+                        <input type="text" id="bookingLocation" placeholder="Event City / Venue Address">
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Event
+                            Type</label>
+                        <select id="bookingType">
+                            <option>Temple Utsavam</option>
+                            <option>Wedding Ceremony</option>
+                            <option>House Warming</option>
+                            <option>Other Cultural Event</option>
+                        </select>
+                    </div>
+                    <button type="button" class="cta-btn" onclick="sendBooking()"
+                        style="width: 100%; cursor: pointer; border-radius: 4px;">Request Booking</button>
+                </form>
+            </div>
+
+            <!-- Form 2: Class Admission -->
+            <div class="reveal"
+                style="background: white; padding: 2.5rem; border-radius: 12px; border-top: 4px solid var(--accent-color); box-shadow: var(--shadow-soft);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center; font-size: 1.5rem;">
+                    <i class="fas fa-graduation-cap" style="margin-right: 10px;"></i> Join Classes
+                </h3>
+                <form>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Student
+                            Name</label>
+                        <input type="text" id="studentName" placeholder="Enter student name">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 1.2rem;">
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Parent
+                                Phone</label>
+                            <input type="tel" id="parentPhone" placeholder="+91...">
+                        </div>
+                        <div>
+                            <label
+                                style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Age</label>
+                            <input type="number" id="studentAge" placeholder="Years">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                        <label
+                            style="font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 5px; color: #444; text-transform: uppercase;">Interested
+                            In</label>
+                        <select id="studentInterest">
+                            <option>Annamayya Sankeerthana</option>
+                            <option>Carnatic Vocal</option>
+                        </select>
+                    </div>
+                    <button type="button" class="cta-btn" onclick="sendAdmission()"
+                        style="width: 100%; cursor: pointer; border-radius: 4px;">Submit Application</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px; text-align: left;">
+                    SRI ANNAMAYYA <br><span>SANKEERTHANA</span>
+                </div>
+                <div class="social-links" style="margin-top: 20px;">
+
+                    <a href="https://www.youtube.com/@raghunathbommisetty6687" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#courses">Classes</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Annamayya Sankeerthana</a></li>
+                    <li><a href="#">Vocal Music</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent-color);"></i>
+                        18-8-35/B, Madura Nagar, Tirupati - 517 501</li>
+                    <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent-color);"></i> +91 78424
+                        34577</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-color);"></i>
+                        srisankeerhana@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.6;">
+            <p>
+                <span>&copy; 2026 Sri Annamayya Sankeerthana Academy. Designed with devotion.</span>
+                <span style="margin-left: 10px;">Developed by <a href="https://sswebtech.xyz" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: bold;">sswebtech.xyz</a></span>
+            </p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917842434577" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach((el) => revealOnScroll.observe(el));
+
+        // 3. Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Number Counter Animation
+        const stats = document.querySelectorAll('.stat-item h3');
+        let hasCounted = false;
+        const startCounting = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !hasCounted) {
+                stats.forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    const increment = target / 50;
+                    const updateCount = () => {
+                        const count = +stat.innerText.replace('+', '');
+                        if (count < target) {
+                            stat.innerText = Math.ceil(count + increment) + "+";
+                            setTimeout(updateCount, 40);
+                        } else {
+                            stat.innerText = target + "+";
+                        }
+                    };
+                    updateCount();
+                });
+                hasCounted = true;
+            }
+        }, { threshold: 0.5 });
+        startCounting.observe(document.querySelector('.stats-container'));
+
+        // 5. WhatsApp Form Functions
+        function sendBooking() {
+            const name = document.getElementById('bookingName').value;
+            const phone = document.getElementById('bookingPhone').value;
+            const date = document.getElementById('bookingDate').value;
+            const location = document.getElementById('bookingLocation').value;
+            const type = document.getElementById('bookingType').value;
+
+            if (!name || !phone) {
+                alert('Please fill in your name and phone number.');
+                return;
+            }
+
+            const message = `*New Sankeerthana Booking Request*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Date:* ${date}%0A*Location:* ${location}%0A*Event Type:* ${type}`;
+            const url = `https://wa.me/917842434577?text=${message}`;
+            window.open(url, '_blank');
+        }
+
+        function sendAdmission() {
+            const name = document.getElementById('studentName').value;
+            const phone = document.getElementById('parentPhone').value;
+            const age = document.getElementById('studentAge').value;
+            const interest = document.getElementById('studentInterest').value;
+
+            if (!name || !phone) {
+                alert('Please fill in the student name and parent phone number.');
+                return;
+            }
+
+            const message = `*New Admission Inquiry*%0A%0A*Student Name:* ${name}%0A*Parent Phone:* ${phone}%0A*Age:* ${age}%0A*Interested In:* ${interest}`;
+            const url = `https://wa.me/917842434577?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+    <a href="https://wa.me/917842434577" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</body>
+
+</html>

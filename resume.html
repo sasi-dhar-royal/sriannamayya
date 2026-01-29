@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>B. Raghunath | Resume</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  background:#bfbfbf;
+  font-family:"Segoe UI", Arial, sans-serif;
+}
+
+/* A4 PAGE */
+.resume{
+  width:210mm;
+  height:297mm;
+  margin:20px auto;
+  background:#fff;
+  display:flex;
+  overflow:hidden;
+  position:relative;
+}
+
+/* LEFT SIDEBAR */
+.left{
+  width:32%;
+  background:#1f2937;
+  color:#fff;
+  padding:18px;
+}
+.profile-img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  border:4px solid #fff;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 10px;
+}
+.left h1{
+  font-size:21px;
+  text-align:center;
+  margin:5px 0 2px;
+}
+.left h3{
+  font-size:12.5px;
+  font-weight:400;
+  text-align:center;
+  color:#d1d5db;
+  margin-bottom:10px;
+}
+.left h2{
+  font-size:13px;
+  border-bottom:1px solid #4b5563;
+  padding-bottom:3px;
+  margin:10px 0 5px;
+}
+.left p, .left li{
+  font-size:12px;
+  line-height:1.45;
+  color:#e5e7eb;
+}
+.left ul{
+  padding-left:15px;
+}
+.left .icon{
+  color:#9ca3af;
+  margin-right:5px;
+}
+
+/* RIGHT CONTENT */
+.right{
+  width:68%;
+  padding:18px 22px;
+}
+.section{
+  margin-bottom:6px;
+}
+.section h2{
+  font-size:13.5px;
+  color:#111827;
+  border-bottom:1.8px solid #111827;
+  padding-bottom:3px;
+  margin-bottom:4px;
+}
+.section p, .section li{
+  font-size:12.2px;
+  line-height:1.5;
+}
+.section ul, .section ol{
+  padding-left:17px;
+  margin:0;
+}
+
+/* SIGNATURE FIX */
+.signature{
+  text-align:right;
+  font-weight:bold;
+  margin-top:4px;
+  page-break-inside:avoid;
+}
+
+/* DOWNLOAD BUTTON */
+#downloadBtn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  padding:8px 12px;
+  font-size:13px;
+  border:none;
+  border-radius:4px;
+  background:#4b5563;
+  color:#fff;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* PRINT */
+@media print{
+  body{background:none;}
+  .resume{
+    box-shadow:none;
+    page-break-after:avoid;
+  }
+  #downloadBtn{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="resume" id="resume">
+
+  <!-- DOWNLOAD BUTTON -->
+  <button id="downloadBtn">Download Resume</button>
+
+  <!-- LEFT -->
+  <div class="left">
+
+    <img src="images/founder.jpg" class="profile-img" alt="B. Raghunath">
+
+    <h1>B. Raghunath</h1>
+    <h3>Grade I Vocal Artist<br>Annamacharya Project<br>T.T.D., Tirupati</h3>
+
+    <h2><i class="fa-solid fa-user icon"></i>Personal</h2>
+    <p><strong>Father:</strong> B. Venkateswarlu</p>
+    <p><strong>Mother:</strong> B. Lakshmidevamma</p>
+    <p><strong>DOB:</strong> 01-03-1962</p>
+
+    <h2><i class="fa-solid fa-phone icon"></i>Contact</h2>
+    <p>7842434577</p>
+    <p>
+      18-8-35/B, Madura Nagar,<br>
+      Tirupati – 517 501,<br>
+      Tirupati (Dist), A.P.
+    </p>
+
+    <h2><i class="fa-solid fa-certificate icon"></i>Titles</h2>
+    <ul>
+      <li>TTD Asthana Gayakulu</li>
+      <li>Nadachintamani</li>
+      <li>Sri Annamayya Gana Visarada</li>
+      <li>Vagdevi Sangeeta Kala Praveena</li>
+      <li>Sri Annamayya Sankeerthana Shiromani</li>
+    </ul>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="section">
+      <h2><i class="fa-solid fa-graduation-cap icon"></i>Qualifications</h2>
+      <p>Passed SSC & Passed A.P. Open University Entrance Examination.</p>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-music icon"></i>Technical Qualifications</h2>
+      <ol>
+        <li>Certificate Course in Vocal – Govt. of A.P. (1984)</li>
+        <li>Diploma Course in Vocal – Govt. of A.P. (1988)</li>
+        <li>Sangeetha Praveena – Vocal, S.V. University (1987)</li>
+        <li>Technical Teacher’s Certificate (Higher Grade) – A.P. Technical Education Dept., Anantapur (1985)</li>
+        <li>Tallapaka Annamacharya Compositions Scholarship – T.T.D., Tirupati (1990)</li>
+        <li>Harikatha Visarada – Vocal (Subsidiary), S.V. University (1985)</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-briefcase icon"></i>Experience</h2>
+      <p>35 years in Vocal Field.</p>
+      <p>Grade I Vocal Artist in Annamacharya Project, T.T.D., Tirupati.</p>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-chalkboard-teacher icon"></i>Institutions & Gurus</h2>
+      <ul>
+        <li>B. Venkateswarlu (Father)</li>
+        <li>Sangeetha Vidwan Sri M.S. Balasubramanya Sarma</li>
+        <li>Smt. G. Mythili, M.A., M.A. (Music), Ph.D.</li>
+        <li>Sri G. Balakrishna Prasad</li>
+        <li>Sangeetha Siromani Sri S.R. Janakiraman</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-award icon"></i>Other Credentials</h2>
+      <ul>
+        <li>Participated in Srivari Brahmotsavams, Thyagaraja & Annamacharya Festivals & T.T.D. recordings.</li>
+        <li>Public concerts in Madras, Delhi, Kolkattha, Bombay, Banglore & Lakshadweep.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-hands-praying icon"></i>Blessings From</h2>
+      <ul>
+        <li>Father and Mother</li>
+        <li>Baratha Rathna Smt. M.S. Subbalakshmi</li>
+        <li>Kanchi Kama Koti Peetadhipathi Sri Jayendra Saraswathi Swamiji</li>
+        <li>Dr. Mangalam Palli Bala Murali Krishna</li>
+        <li>Dr. M.S. Bala Subramanya Sharma</li>
+        <li>Sahasraavadhani Dr. Medasani Mohan</li>
+        <li>Sangeetha Vidwan Sri Nedunuri Krishna Murthy</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-globe icon"></i>International Wide</h2>
+      <ul>
+        <li>Kuwait – Telugu Kala Samithi (25-10-2007)</li>
+        <li>Hindu Temple Society of North America (12-04-2008 & 13-04-2008)</li>
+        <li>Indian Association Hall – Sharjah & Dubai (20-06-2008)</li>
+        <li>Sri Venkateswara Temple – Pittsburgh, U.S.A. (30-08-2008 to 01-09-2008)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2><i class="fa-solid fa-compact-disc icon"></i>Cassettes & CDs</h2>
+      <p>So many Cassettes & CDs.</p>
+    </div>
+
+    <div class="section" style="margin-bottom:0;">
+      <p>I hereby declare that above given statement is true and correct to the best of my knowledge.</p>
+      <div class="signature">(B. Raghunath)</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.getElementById('downloadBtn').addEventListener('click', function() {
+  const resume = document.getElementById('resume');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  // Hide button before capturing
+  downloadBtn.style.display = 'none';
+
+  html2canvas(resume, { scale: 2 }).then(canvas => {
+    // Restore button
+    downloadBtn.style.display = 'block';
+
+    // Resize canvas to A4 (approx 2480x3508 px at 300 DPI)
+    const a4Canvas = document.createElement('canvas');
+    a4Canvas.width = 2480;
+    a4Canvas.height = 3508;
+    const ctx = a4Canvas.getContext('2d');
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, a4Canvas.width, a4Canvas.height);
+    ctx.drawImage(canvas, 0, 0, a4Canvas.width, a4Canvas.height);
+
+    const link = document.createElement('a');
+    link.download = 'B_Raghunath_Resume.png';
+    link.href = a4Canvas.toDataURL('image/png');
+    link.click();
+  });
+});
+</script>
+
+</body>
+</html>
