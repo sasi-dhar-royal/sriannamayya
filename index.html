@@ -21,12 +21,15 @@
         :root {
             /* Divine Maroon */
             --primary-color: #720e1e;
+            --maroon-primary: #720e1e;
             /* Deepest Maroon (for contrast) */
             --primary-dark: #4a0510;
             /* Temple Gold */
             --accent-color: #d4af37;
+            --gold-primary: #d4af37;
             /* Sandalwood Cream (Background) */
             --bg-body: #FFFBF2;
+            --cream-bg: #FFFBF2;
             /* Pure White (Cards) */
             --bg-card: #ffffff;
             /* Text Colors */
@@ -35,6 +38,7 @@
 
             /* Gradients & Shadows */
             --gradient-royal: linear-gradient(135deg, #720e1e 0%, #4a0510 100%);
+            --royal-gradient: linear-gradient(135deg, #720e1e 0%, #2b0509 100%);
             --shadow-soft: 0 10px 40px rgba(114, 14, 30, 0.08);
             --shadow-hover: 0 20px 50px rgba(114, 14, 30, 0.15);
 
@@ -186,7 +190,7 @@
         }
 
         /* =========================================
-           4. NAVBAR (Glassmorphism - Like About Page)
+           3. NAVBAR (Glassmorphism)
            ========================================= */
         header#header {
             position: fixed;
@@ -218,7 +222,7 @@
             font-family: 'Cinzel', serif;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--maroon-primary);
             line-height: 1.1;
             text-align: center;
         }
@@ -226,11 +230,9 @@
         .logo span {
             display: block;
             font-size: 0.65em;
-            color: var(--accent-color);
-            letter-spacing: 4px;
-            font-family: 'Cinzel', serif;
-            font-weight: 400;
-            margin-top: 5px;
+            color: #b38728;
+            /* Gold text */
+            letter-spacing: 2px;
         }
 
         .nav-links {
@@ -246,7 +248,6 @@
             letter-spacing: 1px;
             position: relative;
             padding: 5px 0;
-            color: var(--text-dark);
         }
 
         .nav-links a::after {
@@ -256,7 +257,7 @@
             left: 0;
             width: 0%;
             height: 2px;
-            background: var(--accent-color);
+            background: var(--gold-primary);
             transition: 0.3s;
         }
 
@@ -265,28 +266,18 @@
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
         .cta-btn {
             padding: 10px 25px !important;
-            background: var(--gradient-royal);
+            background: var(--royal-gradient);
             color: white !important;
             border-radius: 50px;
-            border: 1px solid var(--accent-color);
+            border: 1px solid var(--gold-primary);
             box-shadow: 0 5px 15px rgba(114, 14, 30, 0.3);
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(114, 14, 30, 0.5);
-            background: var(--primary-color);
         }
 
         .cta-btn::after {
@@ -295,9 +286,9 @@
 
         .menu-toggle {
             display: none;
-            cursor: pointer;
-            color: var(--primary-color);
             font-size: 1.5rem;
+            color: var(--maroon-primary);
+            cursor: pointer;
         }
 
         /* =========================================
@@ -1175,31 +1166,27 @@
             }
 
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: var(--primary-color);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--cream-bg);
                 flex-direction: column;
-                justify-content: center;
                 padding: 2rem;
-                transition: 0.4s;
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+                border-bottom: 3px solid var(--gold-primary);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: 0.4s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
-                right: 0;
-            }
-
-            .nav-links a {
-                color: white;
-                font-size: 1.2rem;
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .menu-toggle {
                 display: block;
-                z-index: 1001;
             }
         }
 
@@ -1236,6 +1223,37 @@
 
             .gallery-overlay h5 {
                 transform: translateY(0);
+            }
+
+            /* Swipe Indicator - Mobile Only */
+            .swipe-indicator {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin: 20px 0;
+                color: var(--accent-color);
+                font-size: 0.9rem;
+                animation: swipePulse 2s infinite;
+            }
+
+            @keyframes swipePulse {
+
+                0%,
+                100% {
+                    opacity: 0.6;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+        }
+
+        /* Hide swipe indicator on desktop */
+        @media (min-width: 769px) {
+            .swipe-indicator {
+                display: none;
             }
         }
 
@@ -1380,7 +1398,7 @@
 <body>
 
     <header id="header">
-        <div class="nav-container">
+        <nav class="nav-container">
             <a href="#" class="logo">
                 SRI ANNAMAYYA <br><span>SANKEERTHANA ACADEMY</span>
             </a>
@@ -1395,7 +1413,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact" class="cta-btn">Join Now</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <section id="home" class="hero">
@@ -1561,6 +1579,22 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item reveal">
+                <img src="images/5.jpeg" alt="Gallery Image 5">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="images/6.jpeg" alt="Gallery Image 6">
+                <div class="gallery-overlay">
+                    <div class="overlay-text">
+                        <h5>Moments of Melody</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
                 <img src="images/1.jpeg" alt="Gallery Image 1">
                 <div class="gallery-overlay">
                     <div class="overlay-text">
@@ -1593,13 +1627,19 @@
                 </div>
             </div>
             <div class="gallery-item reveal">
-                <img src="images/5.jpeg" alt="Gallery Image 5">
+                <img src="images/7.jpeg" alt="Gallery Image 7">
                 <div class="gallery-overlay">
                     <div class="overlay-text">
                         <h5>Moments of Melody</h5>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Swipe Indicator for Mobile -->
+        <div class="swipe-indicator">
+            <i class="fas fa-chevron-left"></i>
+            <span>Swipe to view more</span>
+            <i class="fas fa-chevron-right"></i>
         </div>
     </section>
 
@@ -1782,11 +1822,9 @@
                 <h4>Contact Info</h4>
                 <ul class="footer-links">
                     <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent-color);"></i>
-                        18-8-35/B, Madura Nagar, Tirupati - 517 501</li>
+                        Tirupati - 517 501</li>
                     <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent-color);"></i> +91 78424
                         34577</li>
-                    <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-color);"></i>
-                        srisankeerhana@gmail.com</li>
                 </ul>
             </div>
         </div>
